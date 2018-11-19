@@ -8,14 +8,15 @@ public:
 int solution::aplusb(int a, int b) {
 	if (b == 0) return a;//进位为0
 	int no_carry = a ^ b;//进位为0
-	int carry = a & b << 1;//所有进位
+	int carry = (a & b) << 1;//所有进位
 	return aplusb(no_carry, carry);//进位加没有进位的结果还会产生进位,直到进位为0才得到真正的结果
-	return aplusb(no_carry, carry);
 }
 int main() {
 	int a, b;
-	cin >> a >> b;
-	cout<<solution::aplusb(a, b);
+	while (cin >> a >> b) {
+		cout << solution::aplusb(a, b)<<endl;
+	}
+	
 	return 0;
 }
 //input
